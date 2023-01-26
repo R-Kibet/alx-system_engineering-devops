@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#script that displays commands
+
+N=$(ls)
+for i in $N
+do
+	echo "$i" | cut -d '-' -f2
+done
