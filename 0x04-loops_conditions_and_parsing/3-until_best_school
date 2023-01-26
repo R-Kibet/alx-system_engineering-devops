@@ -2,7 +2,7 @@
 #script that displays Best School 10 times.
 
 NAME="Best School"
-i=0
+i=1
 
 until (( i > 10 ))
 do
