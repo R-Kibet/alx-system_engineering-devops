@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+#  Createsfile containing its PID
+echo "$$" > /var/run/myscript.pid
+
+# Deletes the file  and terminates itself when receiving a SIGQUIT or SIGTERM signal
+term(){
+	 rm -rf /var/run/myscript.pid
+	 exit
+}
+
+# Displays I hate the kill command when receiving a SIGTERM signal
+trap 'echo "I hate the kill command" && term' SIGTERM
+
+trap 'term' SIGQUIT
+
+# Displays Y U no love me?! when receiving a SIGINT signal
+trap 'echo "Y U no love me?!"' SIGINT
+
+
+
+# Displays To infinity and beyond indefinitely
+while true
+do
+	echo "To infinity and beyond" 
+	sleep 2
+done
