@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#find bash process
+
+pgrep -l bash
+
