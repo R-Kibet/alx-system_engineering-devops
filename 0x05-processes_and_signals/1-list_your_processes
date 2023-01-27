@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#running procces 
+
+ps -auxf
