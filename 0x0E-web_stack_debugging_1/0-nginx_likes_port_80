@@ -2,8 +2,6 @@
 # why ngnx container isnt installing
 
 apt-get update
-apt-get -y install nginx
-# using sed "s" - substitute port 8080 with 80
-# g -global    
+apt-get -y install nginx   
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 service nginx start
