@@ -3,7 +3,7 @@
 
 apt-get update
 apt-get -y install nginx
-# using sed "s" - substitute port 8080 with 80
-# g -global   
-sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service nginx restart
+# s - creates symbolic link
+# f - deletes file and replace
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
