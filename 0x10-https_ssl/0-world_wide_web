@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # display information about the subdomains
-# use dig to display info and awk
 
 func () {
  if [ "$#" -ge 2 ]
