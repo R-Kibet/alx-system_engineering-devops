@@ -1,0 +1,2 @@
+ssh -i 129089-web-01 ubuntu@54.237.56.180
+sudo iptables -A PREROUTING -t nat -p tcp --dport 8080 -j REDIRECT --to-ports 80
