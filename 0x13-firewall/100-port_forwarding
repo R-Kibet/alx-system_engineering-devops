@@ -1,5 +1,3 @@
-#
-<<<<<<< HEAD
 # rules.before
 #
 # Rules that should be run before the ufw command line added rules. Custom
@@ -160,4 +158,4 @@ COMMIT
 #
 ## don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
->>>>>>> 86adee80ce53b3dfed0aa843a52c9216ce227066
+
