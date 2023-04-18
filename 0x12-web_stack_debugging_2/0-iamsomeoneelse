@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# passsing arguments
+
+n1=$1
+echo "$n1"
