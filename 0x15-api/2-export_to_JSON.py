@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ get to do list usng REST API """
 
+import json
 import requests
 from sys import argv
-import json
 
 
 if __name__ == '__main__':
