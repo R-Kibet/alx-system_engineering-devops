@@ -2,7 +2,7 @@
 """ get to do list usng REST API """
 
 import requests
-from sys import argv
+from sys
 
 
 if __name__ == '__main__':
