@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ get to do list usng REST API """
 
+import csv
 import requests
 from sys import argv
-import csv
+
 
 
 if __name__ == '__main__':
