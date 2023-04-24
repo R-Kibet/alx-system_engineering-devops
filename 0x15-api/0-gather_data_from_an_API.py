@@ -7,17 +7,20 @@ from sys import argv
 
 if __name__ == '__main__':
     """ find endpoints , user, todo list """
-    url = "https://jsonplaceholder.typicode.com/"
-    userId = argv[1]
-    user = requests.get('{}users/{}'.format(url, userId)).json()
-    todo = requests.get('{}todos?userId={}'.format(url, userId)).json()
-    completed = []
+    url = 'https://jsonplaceholder.typicode.com/'
+    user = '{}users/{}'.format(url, sys.argv[1])
+    res = requests.get(user)
+    json_o = res.json()
+    print("Employee {} is done with tasks".format(json_o.get('name')), end="")
 
-    """ loop to get done tasks """
-    for i in todo:
-        if i.get("completed"):
-            completed.append(i.get("title"))
-    print("Employee {} is done with task({}/{}):"
-          .format(user.get('name'), len(completed), len(todo)))
-    for i in completed:
-        print('\t{}'.format(i))
+    todos = '{}todos?userId={}'.format(url, sys.argv[1])
+    res = requests.get(todos)
+    tasks = res.json()
+    l_task = []
+    for task in tasks:
+        if task.get('completed') is True:
+            l_task.append(task)
+
+    print("({}/{}):".format(len(l_task), len(tasks)))
+    for task in l_task:
+        print("\t {}".format(task.get("title")))
