@@ -6,7 +6,6 @@ import requests
 from sys import argv
 
 
-
 if __name__ == '__main__':
     """ find endpoints , user, todo list """
     url = "https://jsonplaceholder.typicode.com/"
