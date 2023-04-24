@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ get to do list usng REST API """
 
-import requests
 import json
+import requests
 
 
 if __name__ == '__main__':
