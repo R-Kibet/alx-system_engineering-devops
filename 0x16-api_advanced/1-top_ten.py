@@ -18,6 +18,6 @@ def top_ten(subreddit):
             for i in post:
                 print(i.get('data').get('title'))
         else:
-             print("None") 
+            print("None")
     else:
-        print("None") 
+        print("None")
