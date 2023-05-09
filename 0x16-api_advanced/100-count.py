@@ -3,6 +3,7 @@
 Function that queries the Reddit API and prints
 the top ten hot posts of a subreddit
 """
+
 import requests
 
 
@@ -65,9 +66,9 @@ def count_words(subreddit, word_list, histogram=[], n=0, after=None):
         word_list = list(map(lambda word: word.lower(), word_list))
         histogram = list(map(lambda word: (word, 0), word_list))
     if res.status_code == 200:
-        data = res.json().get('data')
+        data = res.json()['data']
         posts = data['children']
-        titles = list(map(lambda post: post.get('data').get('title'), posts))
+        titles = list(map(lambda post: post['data']['title'], posts))
         histogram = list(map(
             lambda kv: (kv[0], kv[1] + sum(list(map(
                 lambda txt: txt.lower().split().count(kv[0]),
@@ -75,13 +76,13 @@ def count_words(subreddit, word_list, histogram=[], n=0, after=None):
             )))),
             histogram
         ))
-        if len(posts) >= limit and data.get('after'):
+        if len(posts) >= limit and data['after']:
             count_words(
                 subreddit,
                 word_list,
                 histogram,
                 n + len(posts),
-                data.get('after')
+                data['after']
             )
         else:
             sort_histogram(histogram)
