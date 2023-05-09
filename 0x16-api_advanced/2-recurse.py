@@ -1,18 +1,15 @@
 #!/usr/bin/python3
-''' recursive function that queries the Reddit API  '''
+""" using recurse function """
+
 import requests
 
 
 def recurse(subreddit, hot_list=[], after=''):
-    '''
-    returns a list containing the titles of all hot articles of subreddit
-    '''
+    """ function to call recurse """
+    headers = {'User-Agent': 'me'}
+    url = 'http://reddit.com/r/{}/hot.json?after={}'.format(subreddit, after)
+    res = requests.get(url, headers=headers)
 
-    base_url = 'http://reddit.com/r/{}/hot.json?after={}'.format(subreddit,
-                                                                 after)
-    headers = {'User-agent': 'timex19'}
-
-    res = requests.get(base_url, headers=headers)
     if res.status_code == 200:
         top = res.json()
         key = top['data']['after']
