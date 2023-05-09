@@ -13,11 +13,13 @@ def recurse(subreddit, hot_list=[], after=''):
     res = requests.get(url, headers=headers)
 
     if res.status_code == 200:
-        parent = res.json().get('data').get('children')
-        key = res.json().get('data').get('after')
+        top = res.json()
+        key = top['data']['after']
+        parent = top['data']['children']
 
-        for i in parent:
-            hot_list.append(i.get('data').get('title'))
+        for obj in parent:
+            hot_list.append(obj['data']['title'])
+
         if key is not None:
             recurse(subreddit, hot_list, key)
         return hot_list
